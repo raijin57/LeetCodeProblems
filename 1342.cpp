@@ -6,10 +6,10 @@ class Solution {
     int numberOfSteps(int num) {
         if (num == 0) {
             return num;
-        } else if (num % 2 == 0) {
-            return 1 + numberOfSteps(num / 2);
-        } else {
-            return 1 + numberOfSteps(num - 1);
         }
+        if (num % 2 == 0) {
+            return 1 + numberOfSteps(num / 2);
+        }
+        return 1 + numberOfSteps(num - 1);
     }
 };

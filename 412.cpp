@@ -11,7 +11,6 @@ class Solution {
             bool divisible_by_3 = i % 3 == 0;
             bool divisible_by_5 = i % 5 == 0;
             bool divisible_by_15 = i % 15 == 0;
-
             if (divisible_by_15) {
                 answer.push_back("FizzBuzz");
             } else if (divisible_by_3) {

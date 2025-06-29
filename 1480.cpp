@@ -2,6 +2,7 @@
 // Created by arsen on 25.06.2025.
 //
 #include <vector>
+
 class Solution {
    public:
     std::vector<int> runningSum(std::vector<int>& nums) {
