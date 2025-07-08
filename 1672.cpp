@@ -6,7 +6,7 @@ class Solution {
    public:
     int maximumWealth(std::vector<std::vector<int>>& accounts) {
         int max_wealth = 0;
-        for (std::vector person : accounts) {
+        for (std::vector<int> person : accounts) {
             int wealth = 0;
             for (int sum : person) {
                 wealth += sum;
