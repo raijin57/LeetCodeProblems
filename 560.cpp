@@ -1,6 +1,9 @@
 //
 // Created by arsen on 14.09.2025.
 //
+#include <iostream>
+
+#include <ostream>
 #include <unordered_map>
 #include <vector>
 //* class Solution {
@@ -43,3 +46,9 @@ public:
         return count;
     }
 };
+
+int main() {
+    Solution s;
+    std::vector<int> nums = {1, 1, 1};
+    std::cout << s.subarraySum(nums, 2) << std::endl;
+}
