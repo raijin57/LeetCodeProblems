@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
+/**
 class Solution {
 public:
     int lengthOfLongestSubstring(std::string s) {
@@ -26,8 +28,22 @@ public:
         return answer;
     }
 };
-
-int main() {
-    Solution s;
-    std::cout << s.lengthOfLongestSubstring("abcabcbb") << std::endl;
-}
+*/
+//! Теперь sliding window
+class Solution {
+public:
+    int lengthOfLongestSubstring(std::string s) {
+        std::vector<int> lastSeen(128, -1);
+        int result = 0;
+        int left = 0;
+        for (int right = 0; right < s.size(); ++right) {
+            char c = s[right];
+            if (lastSeen[c] >= left) {
+                left = std::max(left, lastSeen[c] + 1);
+            }
+            lastSeen[c] = right;
+            result = std::max(result, right - left + 1);
+        }
+        return result;
+    }
+};

@@ -20,12 +20,3 @@ public:
         return pos;
     }
 };
-
-int main() {
-    Solution s;
-    std::vector<int> nums = {3, 3};
-    std::cout << s.removeElement(nums, 3) << std::endl;
-    for (int i = 0; i < nums.size(); i++) {
-        std::cout << nums[i] << std::endl;
-    }
-}

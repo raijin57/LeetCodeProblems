@@ -36,7 +36,7 @@ public:
         int count = 0;
         std::unordered_map<int, int> freq;
         freq[0] = 1;
-        for (int i = 1; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) {
             sum += nums[i];
             if (freq.count(sum - k)) {
                 count += freq[sum - k];
@@ -46,9 +46,3 @@ public:
         return count;
     }
 };
-
-int main() {
-    Solution s;
-    std::vector<int> nums = {1, 1, 1};
-    std::cout << s.subarraySum(nums, 2) << std::endl;
-}
