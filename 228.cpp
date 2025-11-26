@@ -7,37 +7,22 @@ class Solution {
 public:
     std::vector<std::string> summaryRanges(std::vector<int>& nums) {
         std::vector<std::string> result;
-        if (nums.size() == 0) {
+        if (nums.empty()) {
             return result;
         }
-        int i = 0;
-        int j = 1;
-        while (i < nums.size() && j < nums.size()) {
-            if (nums[j] != nums[i] + (j - i)) {
-                if (j - i == 1) {    // std::vector<int> nums = {0,1,2,4,5,7};
-                    result.push_back(std::to_string(nums[i]));
-                    i = j;
-                }
-                else {
-                    result.push_back(std::to_string(nums[i]) + "->" + std::to_string(nums[j - 1]));
-                    i = j;
-                }
+        for (int i = 0; i < nums.size();) {
+            int start = nums[i];
+            int j = i;
+            while (j + 1 < nums.size() && nums[j + 1] == nums[j] + 1) {
+                j++;
             }
-            j++;
-        }
-        if (j - i != 1) {
-            result.push_back(std::to_string(nums[i]) + "->" + std::to_string(nums[j - 1]));
-        }
-        else {
-            result.push_back(std::to_string(nums[j - 1]));
+            if (nums[j] == start) {
+                result.push_back(std::to_string(start));
+            } else {
+                result.push_back(std::to_string(start) + "->" + std::to_string(nums[j]));
+            }
+            i = j + 1;
         }
         return result;
     }
 };
-
-int main() {
-    std::vector<int> nums = {0,1,2,4,5,7};
-    Solution s;
-    s.summaryRanges(nums);
-    return 0;
-}
